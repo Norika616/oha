@@ -1,0 +1,127 @@
+@use "breakpoints" as bp;
+
+//変数の定義
+
+// フォントの種類
+$font-family-ja: "Noto Sans JP", sans-serif;
+$font-family-en: "Montserrat", sans-serif;
+
+// フォントの大きさ
+$font-size-base: 16px;
+
+// 文字間の余白
+$line-height-base: 1.7;
+
+// フォントカラー
+$color-base: #111;
+
+// 背景色
+$background-base: #fafafa;
+
+// キーカラー
+$color-key1: #f5810e;
+$color-key2: #fabe00;
+
+// グラデーションカラー
+$color-gradation: linear-gradient(180deg, #f8b819 0%, #f0d320 100%);
+
+// コンテンツ幅
+$width-inner: 1140px;
+
+body {
+  font-family: $font-family-ja;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $color-base;
+  background: $background-base;
+}
+
+// 改行取り消し
+.hidden-pc {
+  @include bp.mq(pc) {
+    display: none;
+  }
+}
+
+.inline-block {
+  font-weight: inherit;
+  display: inline-block;
+}
+
+// ボタン
+.button {
+  min-width: 150px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.48px;
+  line-height: 170%;
+  padding: calc(10px - 2px) calc(30px - 2px);
+  display: inline-block;
+  border-radius: 60px;
+  border: 2px solid currentColor;
+  background: #fff;
+  color: $color-base;
+  transition: background-color 0.3s, color 0.3s;
+  &:hover {
+    background-color: #fabe00;
+  }
+
+  &--type2 {
+    color: #fff;
+    background-color: $color-base;
+
+    &:hover {
+      background-color: #fff;
+      color: #111;
+    }
+  }
+}
+
+//見出し
+.heading {
+  text-align: center;
+  font-family: $font-family-en;
+}
+
+.heading__title-en {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 3.8px;
+
+  @include bp.mq(pc) {
+    font-size: 50px;
+    letter-spacing: 5px;
+  }
+}
+
+.heading__title-ja {
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 1.12px;
+
+  @include bp.mq(pc) {
+    font-size: 16px;
+    letter-spacing: 1.28px;
+  }
+}
+
+//インナー
+//画面幅768px以下は左右に15pxずつの余白
+//画面幅PC時はコンテンツ幅1140px
+.inner {
+  padding-right: 15px;
+  padding-left: 15px;
+
+  @include bp.mq(pc) {
+    padding-right: 30px;
+    padding-left: 30px;
+    max-width: calc($width-inner + 30px * 2);
+
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

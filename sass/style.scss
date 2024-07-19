@@ -1,0 +1,18 @@
+// scssファイル呼び出し
+@use "breakpoints" as bp;
+@use "variable" as var;
+@use "header";
+@use "mv";
+@use "case";
+@use "news";
+@use "about";
+@use "movie";
+@use "how-to-use";
+@use "merit";
+@use "cta";
+@use "compare";
+@use "qa";
+@use "gallery";
+@use "contact";
+@use "footer";
+@use "about-modal";

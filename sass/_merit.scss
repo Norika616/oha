@@ -1,0 +1,142 @@
+@use "breakpoints" as bp;
+@use "variable" as var;
+@use "header";
+@use "mv";
+@use "case";
+@use "news";
+@use "about";
+@use "movie";
+@use "how-to-use";
+
+.merit {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  @include bp.mq(pc) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+.merit__inner {
+}
+
+.merit__title {
+}
+
+.merit__boxes {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @include bp.mq(pc) {
+    margin-top: 60px;
+    gap: 40px;
+  }
+}
+
+.merit__box {
+}
+
+.merit-box {
+  border-radius: 20px;
+  background-color: #fff;
+  padding: 10px 20px 24px;
+
+  @include bp.mq(pc) {
+    padding: 20px 18px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-direction: row-reverse;
+  }
+}
+
+.merit-box__content {
+  @include bp.mq(pc) {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 50px;
+    max-width: 920px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .is-reverse & {
+    @include bp.mq(pc) {
+      flex-direction: row;
+    }
+  }
+}
+
+.merit-box__image {
+  text-align: center;
+
+  @include bp.mq(pc) {
+    // body内の画像の割合
+    width: calc(350px / 920px * 100%);
+  }
+  img {
+    width: 200px;
+
+    @include bp.mq(pc) {
+      width: 350px;
+    }
+  }
+}
+
+.merit-box__body {
+  margin-top: 18px;
+
+  @include bp.mq(pc) {
+    margin-top: 0;
+    width: calc(520px / 920px * 100%);
+  }
+}
+
+.merit-box__head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  @include bp.mq(pc) {
+    gap: 28px;
+  }
+}
+
+.merit-box__number {
+  color: #fabe00;
+  font-family: var.$font-family-en;
+  font-size: 70px;
+  font-weight: 600;
+  line-height: 1;
+
+  @include bp.mq(pc) {
+    font-size: 110px;
+  }
+}
+
+.merit-box__title {
+  font-family: var.$font-family-en;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+
+  @include bp.mq(pc) {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+}
+
+.merit-box__text {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 2;
+
+  @include bp.mq(pc) {
+    margin-top: 16px;
+    font-size: 15px;
+  }
+}

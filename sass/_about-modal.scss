@@ -1,0 +1,65 @@
+@use "breakpoints" as bp;
+@use "variable" as var;
+// モーダル
+
+.about-modal {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  max-width: calc(100% - 15px * 2);
+  max-height: calc(100% - 15px * 2);
+  overflow: auto;
+  border-radius: 20px;
+  background: #fff;
+  border: none;
+  padding: 16px 16px 64px 15px;
+  z-index: 60;
+  overscroll-behavior-y: none;
+  @include bp.mq(pc) {
+    width: 1140px;
+    padding: 49px 70px 75px;
+  }
+
+  &::backdrop {
+    opacity: 0.2;
+    background: #000;
+  }
+}
+
+.about-modal__head {
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  top: 0;
+}
+
+.about-modal__close-icon {
+  img {
+    width: 37px;
+  }
+}
+
+.about-modal__body {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @include bp.mq(pc) {
+    margin-top: 43px;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    @include bp.mq(pc) {
+      font-size: 16px;
+    }
+  }
+}
+
+.about-modal__close-button {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.button {
+}

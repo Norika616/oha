@@ -1,0 +1,347 @@
+@use "breakpoints" as bp;
+@use "variable" as var;
+
+.contact {
+  background: url(../img/section-bg.png) repeat top left / 529px auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  @include bp.mq(pc) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+.contact__inner {
+}
+
+.inner {
+}
+
+.contact__box {
+  border-radius: 30px;
+  background: #fff;
+  padding: 60px 20px;
+  @include bp.mq(pc) {
+    padding: 60px 30px;
+  }
+}
+
+.contact__title {
+}
+
+.contact__form {
+  margin-top: 30px;
+  @include bp.mq(pc) {
+    margin-top: 50px;
+    max-width: 612px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.contact__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.contact__field {
+}
+//
+//入力項目と入力フォーム
+//
+
+.form-field {
+  @include bp.mq(pc) {
+    display: flex;
+    gap: 32px;
+  }
+}
+.form-field__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  @include bp.mq(pc) {
+    display: flex;
+    width: calc(212px - 32px);
+    flex-shrink: 0;
+    justify-content: flex-end;
+  }
+}
+.form-field__label {
+  font-weight: 700;
+  line-height: calc(23px / 16px);
+}
+
+.form-field__tag {
+  //必須のときはオレンジ背景
+  display: inline-block;
+  padding: 6px 8px 5px 8px;
+  border-radius: 2px;
+  background: #ee8013;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1.98px;
+
+  //任意のときは緑背景
+  &.is-option {
+    background: #43b549;
+  }
+}
+
+.form-field__item {
+  margin-top: 15px;
+  flex-grow: 1;
+  @include bp.mq(pc) {
+    margin-top: 0;
+  }
+}
+
+.form-text {
+  width: 100%;
+  border-radius: 5px;
+  border: 3px solid #111;
+  //   border3pxを考慮してpaddingを設定
+  padding: calc(15px - 3px) (16px - 3px) (14px - 3px);
+  transition: border-color 0.3s;
+  &:hover,
+  &:focus {
+    border-color: #fabe00;
+    // デフォルトの青いアウトラインを消す
+    outline: none;
+  }
+}
+
+//
+// ラジオボタン
+//
+
+.form-field__radios {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+
+  @include bp.mq(pc) {
+    flex-direction: row;
+    gap: 30px;
+  }
+}
+
+.form-radio {
+  line-height: calc(23px / 16px);
+
+  &:hover {
+    .form-radio-text {
+      &::before {
+        border-color: #fabe00;
+      }
+    }
+  }
+}
+
+.form-radio__input {
+  height: 1px;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+
+  // ラジオボタンにチェックした時、&::afterが表示される。
+  &:checked {
+    + .form-radio-text {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  //ラジオボタンにフォーカスが当たった時に枠線をつける。
+  &:focus {
+    + .form-radio-text {
+      &::before {
+        border-color: #fabe00;
+      }
+    }
+  }
+}
+.form-field__radio {
+}
+
+.form-radio-text {
+  font-weight: 700;
+  position: relative;
+  padding-left: 28px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+  }
+
+  &::before {
+    width: 24px;
+    height: 24px;
+    border: 3px solid #111;
+    left: 0;
+    transition: border-color 0.3s;
+  }
+
+  &::after {
+    left: 7px;
+    width: 10px;
+    height: 10px;
+    background: var.$color-key1;
+    opacity: 0;
+  }
+}
+
+//
+//セレクトボックス
+//
+.form-select {
+  appearance: none;
+  width: 100%;
+  border-radius: 5px;
+  border: 3px solid var.$color-base;
+  font-weight: 700;
+  padding: calc(15px - 3px) (46px - 3px) (14px - 3px) (16px - 3px);
+  background: url(../img/Polygon\ 1.png) no-repeat center right 16px / 9.451px
+    6.969px;
+
+  transition: border-color 0.3s;
+  &:hover,&:focus {
+    border-color: #fabe00;
+    outline: none;
+  }
+}
+
+//
+// テキストエリア
+//
+.form-textarea {
+  width: 100%;
+  height: 180px;
+  padding: calc(16px - 3px);
+  border-radius: 5px;
+  border: 3px solid #111;
+  background: #fff;
+  transition: border-color 0.3s;
+  &:hover,&:focus {
+    border-color: #fabe00;
+    outline: none;
+  }
+}
+
+//
+//プライバシーポリシー
+//
+.contact__privacy {
+  margin-top: 29px;
+  text-align: center;
+}
+
+.form-checkbox {
+  .form-checkbox__text {
+    &:hover {
+      &::before {
+        border-color: #fabe00;
+      }
+    }
+  }
+
+}
+
+.form-checkbox__input {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+
+  // チェックボックスにチェックした時、&::afterが表示される。
+  &:checked {
+    + .form-checkbox__text {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+  &:focus {
+    + .form-checkbox__text {
+      &::before {
+        border-color: #fabe00;
+      }
+    }
+  }
+}
+
+.form-checkbox__text {
+  position: relative;
+  padding-left: 29px;
+  font-size: 14px;
+  font-weight: 700;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+  }
+
+  &::before {
+    width: 20px;
+    height: 20px;
+    border-radius: 1px;
+    border: 1px solid var.$color-base;
+    transition: border-color 0.3s;
+
+    @include bp.mq(pc) {
+      margin-top: 2px;
+    }
+  }
+
+  &::after {
+    width: 23px;
+    height: 17.53px;
+    left: -1px;
+    margin-top: -1.2px;
+    background: url(../img/check.png) no-repeat center center / contain;
+    opacity: 0;
+
+    @include bp.mq(pc) {
+      margin-top: 0.8px;
+    }
+  }
+  a {
+    text-decoration-line: underline;
+    font-weight: inherit;
+    transition: color 0.3s;
+
+    &:hover,&:focus {
+      color: #f5810e;
+      outline: none;
+    }
+  }
+}
+
+//
+// 送信ボタン
+//
+
+.contact__button {
+  text-align: center;
+  margin-top: 30px;
+
+  @include bp.mq(pc) {
+    margin-top: 38px;
+  }
+}

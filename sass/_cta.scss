@@ -1,0 +1,39 @@
+@use "breakpoints" as bp;
+@use "variable" as var;
+
+.cta {
+  background: var.$color-gradation;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  @include bp.mq(pc) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+.cta__inner {
+}
+
+.inner {
+}
+
+.cta__text {
+  text-align: center;
+  font-weight: 700;
+  line-height: 2;
+  letter-spacing: 0.48px;
+
+  @include bp.mq(pc) {
+    font-size: 18px;
+    letter-spacing: 0.54px;
+  }
+}
+
+
+.cta__button {
+  margin-top: 16px;
+}
+
+.button {
+}

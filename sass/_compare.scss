@@ -1,0 +1,150 @@
+@use "breakpoints" as bp;
+@use "variable" as var;
+
+.compare {
+  background: #fff;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  @include bp.mq(pc) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+.compare__inner {
+}
+
+.inner {
+}
+
+.compare__title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+
+  @include bp.mq(pc) {
+    font-size: 24px;
+  }
+}
+
+.compare__content {
+  overflow-x: auto;
+  margin-top: 40px;
+  padding-bottom: 38px;
+
+  @include bp.mq(pc) {
+    margin-top: 60px;
+    padding-bottom: 0;
+  }
+}
+
+.compare__table {
+  width: 620px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include bp.mq(pc) {
+    width: 1000px;
+  }
+  th,
+  td {
+    text-align: center;
+    font-weight: 700;
+    height: 60px;
+    vertical-align: middle;
+
+    @include bp.mq(pc) {
+      height: 100px;
+    }
+
+    &:nth-child(1) {
+      width: 130px;
+
+      @include bp.mq(pc) {
+        width: 250px;
+      }
+    }
+
+    &:nth-child(2) {
+      width: 90px;
+      background: #fff9e5;
+      font-size: 16px;
+      letter-spacing: 0.48px;
+
+      @include bp.mq(pc) {
+        width: 250px;
+        font-size: 25px;
+        letter-spacing: 0.75px;
+      }
+      img {
+        width: 70px;
+
+        @include bp.mq(pc) {
+          width: 123px;
+        }
+      }
+    }
+  }
+
+  thead {
+    th {
+      letter-spacing: 1.6px;
+
+      @include bp.mq(pc) {
+        letter-spacing: 2px;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      border-top: 1.5px solid #000;
+      @include bp.mq(pc) {
+        border-top: 3px solid #000;
+      }
+    }
+
+    th,
+    td {
+      height: calc(60px - 1.5px);
+      @include bp.mq(pc) {
+        height: 100px;
+      }
+    }
+  }
+
+  th {
+    letter-spacing: 0.48px;
+
+    @include bp.mq(pc) {
+      font-size: 20px;
+      letter-spacing: 0.6px;
+    }
+  }
+
+  td {
+    font-size: 14px;
+    letter-spacing: 0.42px;
+
+    @include bp.mq(pc) {
+      font-size: 16px;
+      letter-spacing: 0.48px;
+    }
+  }
+}
+
+.compare__attention {
+  text-align: center;
+  margin-top: 11px;
+  color: #686868;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+
+  @include bp.mq(pc) {
+    display: none;
+  }
+}

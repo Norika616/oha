@@ -1,0 +1,155 @@
+@use "breakpoints" as bp;
+@use "variable" as var;
+
+.news {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  @include bp.mq(pc) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
+.news__inner {
+}
+
+.inner {
+}
+.news__card {
+  border-radius: 20px;
+  padding: 40px 12px;
+  background: #fff;
+  box-shadow: 0px 9px 30px 0px #f4f4f4;
+  @include bp.mq(pc) {
+    border-radius: 30px;
+    padding-top: 40px;
+    padding-bottom: 34px;
+    padding-right: calc(105px / 1140px * 100%);
+    padding-left: calc(105px / 1140px * 100%);
+  }
+}
+
+.news__title {
+  text-align: center;
+  font-family: var.$font-family-en;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 3.8px;
+  @include bp.mq(pc) {
+    text-align: left;
+    font-size: 50px;
+    letter-spacing: 5px;
+  }
+}
+
+.news__lists {
+  margin-top: 28px;
+  @include bp.mq(pc) {
+    margin-top: 30px;
+  }
+}
+
+.news__list {
+  // 2番目以降の要素に線を引く
+  &:nth-child(n + 2) {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background: #e3e3e3;
+    }
+  }
+}
+
+.news-link {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #fff9e5;
+  }
+  @include bp.mq(pc) {
+    flex-direction: row;
+    gap: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+.news-link__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  @include bp.mq(pc) {
+    width: 247px;
+    flex-shrink: 0;
+    gap: 14px;
+  }
+}
+
+.news-link__date {
+  color: #333;
+  font-weight: 400;
+  white-space: nowrap;
+  @include bp.mq(pc) {
+    width: 119px;
+  }
+}
+
+.news-link__label {
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 2px;
+  min-width: 63px;
+  text-align: center;
+
+  &.is-news {
+    background: #e4780c;
+  }
+
+  &.is-column {
+    background: #ecb815;
+  }
+
+  &.is-event {
+    background: #389b47;
+  }
+}
+
+.news-link__title {
+  font-weight: 400;
+}
+
+.news__link {
+  text-align: right;
+  margin-top: 22px;
+  transition: color 0.3s;
+
+
+  @include bp.mq(pc) {
+    margin-top: 20px;
+  }
+  a {
+    font-weight: 700;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: top;
+    border-bottom: 2px solid currentColor;
+    padding-bottom: calc(10px - 2px);
+    &:hover {
+      color: #fabe00;
+    }
+  }
+}

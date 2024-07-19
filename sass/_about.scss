@@ -1,0 +1,120 @@
+@use "breakpoints" as bp;
+@use "variable" as var;
+@use "header" as head;
+@use "mv" as mv;
+@use "case";
+
+// aboutセクション
+
+.about {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  overflow: hidden;
+  @include bp.mq(pc) {
+    padding-top: 50px;
+    padding-bottom: 100px;
+  }
+}
+
+.about__inner {
+}
+
+.about__title {
+  text-align: center;
+  img {
+    width: 180px;
+    @include bp.mq(pc) {
+      width: 230px;
+    }
+  }
+}
+
+.about__content {
+  margin-top: 150px;
+  padding-top: 288px;
+  padding-bottom: 105px;
+  position: relative;
+  text-align: center;
+
+  @include bp.mq(pc) {
+    margin-top: 176px;
+    padding-top: 284px;
+    padding-bottom: 100px;
+  }
+
+  &::before {
+    content: "";
+    width: 1100px;
+    height: 1100px;
+    border-radius: 50%;
+    background: var.$color-gradation;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+
+    @include bp.mq(pc) {
+      width: 800px;
+      height: 800px;
+    }
+  }
+}
+
+.about__image {
+  position: absolute;
+  text-align: center;
+  top: -110px;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+
+  @include bp.mq(pc) {
+    top: -126px;
+  }
+
+  img {
+    width: 320px;
+
+    @include bp.mq(pc) {
+      width: 330px;
+    }
+  }
+}
+
+.about__text {
+  font-weight: 700;
+  line-height: 2.3;
+  z-index: 2;
+  position: relative;
+}
+
+.hidden-pc {
+  @include bp.mq(pc) {
+    display: none;
+  }
+}
+
+.about__pop {
+  margin-top: 42px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1.28px;
+  z-index: 2;
+  position: relative;
+
+  @include bp.mq(pc) {
+    margin-top: 43px;
+  }
+}
+
+.about__button {
+  z-index: 2;
+  position: relative;
+  margin-top: 12px;
+
+  @include bp.mq(pc) {
+    margin-top: 15px;
+  }
+}
+

@@ -1,0 +1,40 @@
+@use "breakpoints" as bp;
+@use "variable" as var;
+
+
+.movie {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background: url(../img/section-bg.png) repeat top left / 529px auto;
+
+  @include bp.mq(pc) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+.movie__inner {
+  padding-right: 15px;
+  padding-left: 15px;
+
+}
+
+.movie__iframe {
+  margin-top: 32px;
+  text-align: center;
+
+  @include bp.mq(pc) {
+    margin-top: 56px;
+  }
+  iframe {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 345 / 194;
+    vertical-align: top;
+
+    @include bp.mq(pc) {
+      width: 640px;
+      aspect-ratio: 640 / 360;
+    }
+  }
+}

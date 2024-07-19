@@ -1,0 +1,156 @@
+@use "breakpoints" as bp;
+@use "variable" as var;
+
+.qa {
+  padding-top: 61px;
+  padding-bottom: 60px;
+  @include bp.mq(pc) {
+    padding-top: 97px;
+    padding-bottom: 100px;
+  }
+}
+
+.qa__inner {
+  @include bp.mq(pc) {
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: calc(800px + 30px * 2);
+  }
+}
+
+.qa__boxes {
+  margin-top: 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  @include bp.mq(pc) {
+    margin-top: 74px;
+  }
+}
+
+.qa__box {
+}
+
+.qa-box {
+  border-radius: 10px;
+  border: 3px solid #111;
+  background: #fff;
+
+  &.is-open {
+    .qa-box__head {
+      &::after {
+        transform: rotate(0deg);
+      }
+    }
+    // 以下jQueryで実装するためコメントアウト
+    // .qa-box__body {
+    //   display: block;
+    // }
+  }
+}
+
+.qa-box__head {
+  padding: calc(32px - 3px) (40px - 3px) (20px - 3px) (15px - 3px);
+  position: relative;
+  display: block;
+  width: 100%;
+  @include bp.mq(pc) {
+    padding: calc(32px - 3px) (80px - 3px) (20px - 3px) (20px - 3px);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 13px;
+    width: 9.26px;
+    height: 6.834px;
+    margin-top: 4px;
+    background: url(../img/qa-arrow.png) no-repeat center center / contain;
+    transform: rotate(180deg);
+    @include bp.mq(pc) {
+      right: 18px;
+      margin-top: 2px;
+    }
+  }
+}
+
+.qa-box__head-icon {
+  display: grid;
+  place-items: center;
+  font-family: var.$font-family-en;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  // letter-spacing: 2.2px;
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  border: 3px solid #111;
+  background: #f5810e;
+  position: absolute;
+  top: -26px;
+  left: 12px;
+  @include bp.mq(pc) {
+    left: 17px;
+  }
+}
+
+.qa-box__head-text {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.12px;
+  @include bp.mq(pc) {
+    font-size: 16px;
+    letter-spacing: 1.28px;
+  }
+}
+
+.qa-box__body {
+  padding: calc(10px + 3px) (17px - 3px) (20px - 3px) (15px - 3px);
+  display: none;
+  @include bp.mq(pc) {
+    padding: 3px calc(36px - 3px) (20px - 3px) (20px - 3px);
+  }
+}
+
+.qa-box__a {
+  display: flex;
+  gap: 8px;
+  @include bp.mq(pc) {
+    gap: 10px;
+  }
+}
+
+.qa-box__a-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  font-family: var.$font-family-en;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  // letter-spacing: 2.2px;
+  border-radius: 22px;
+  border: 3px solid #111;
+  background: #fabe00;
+  flex-shrink: 0;
+}
+
+.qa-box__a-text {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.12px;
+  flex-grow: 1;
+  padding-top: 12px;
+  @include bp.mq(pc) {
+    font-size: 16px;
+    line-height: 27px;
+    letter-spacing: 1.28px;
+    padding-top: 7px;
+  }
+}

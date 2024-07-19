@@ -1,0 +1,156 @@
+@use "breakpoints" as bp;
+@use "variable" as var;
+// header
+
+.header {
+}
+
+.header__inner {
+  padding: 22px 15px;
+  display: flex;
+  justify-content: space-between;
+  @include bp.mq(pc) {
+    padding-bottom: 21px;
+  }
+
+  @include bp.mq(pc) {
+    // 左右の余白を足さないと1140pxにならない
+    padding-right: 15px;
+    padding-left: 15px;
+    max-width: calc(var.$width-inner + 15px * 2);
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.header__logo {
+  @include bp.mq(pc) {
+    padding-top: 6px;
+  }
+  a {
+    img {
+      width: 100px;
+      display: block;
+
+      @include bp.mq(pc) {
+        width: 135px;
+      }
+    }
+  }
+}
+
+.header__nav {
+  display: none;
+
+  @include bp.mq(pc) {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
+.header__link {
+  font-weight: 700;
+  letter-spacing: 0.48px;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #f5810e;
+  }
+}
+
+.header__button {
+}
+
+.button {
+}
+
+.header__open {
+  margin-top: 3px;
+  @include bp.mq(pc) {
+    display: none;
+  }
+}
+
+.drawer-icon {
+  width: 36px;
+  height: 21px;
+  position: relative;
+  z-index: 51;
+  &.is-checked {
+    .drawer-icon__bar {
+      &:nth-of-type(1) {
+        top: 10px;
+        transform: rotate(30deg);
+      }
+
+      &:nth-of-type(2) {
+        display: none;
+      }
+
+      &:nth-of-type(3) {
+        top: 10px;
+        transform: rotate(-30deg);
+      }
+    }
+  }
+}
+
+.drawer-icon__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 3px;
+  border-radius: 6px;
+  background: #111;
+  transition: transform 0.3s linear , top 0.3s linear ;
+
+  &:nth-of-type(1) {
+  }
+
+  &:nth-of-type(2) {
+    top: 9px;
+  }
+
+  &:nth-of-type(3) {
+    top: 18px;
+  }
+}
+
+//ドロワーメニュー
+.drawer-content {
+  width: 320px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #f7ba1a;
+  z-index: 50;
+  padding: 86px 40px 40px;
+  transform: translateX(100%);
+  &.is-checked {
+    transform: translateX(0);
+    transition: transform 0.3s linear;
+  }
+}
+
+.drawer-content__menu {
+}
+
+.drawer-content__link {
+  display: block;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  text-align: right;
+  font-weight: 700;
+  letter-spacing: 0.48px;
+}
+
+.drawer-content__button {
+  margin-top: 14px;
+  text-align: right;
+}
+
+.button {
+}

@@ -1,0 +1,152 @@
+@use "breakpoints" as bp;
+@use "variable" as var;
+
+//
+// GALLERYセクション
+//
+.gallery {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  @include bp.mq(pc) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+.gallery__inner {
+  @include bp.mq(pc) {
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: calc(800px + 30px * 2);
+  }
+}
+
+.inner {
+}
+
+.gallery__title {
+}
+
+.gallery__slider {
+  margin-top: 30px;
+  @include bp.mq(pc) {
+    margin-top: 60px;
+  }
+}
+
+.swiper {
+}
+
+.gallery__swiper {
+  padding-bottom: 26px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: -5px;
+  margin-right: -5px;
+  @include bp.mq(pc) {
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+.swiper-wrapper {
+}
+
+.swiper-slide {
+}
+
+.gallery-card {
+  border-radius: 20px;
+  border: 3px solid #111;
+  background: #fff;
+  box-shadow: 0px 9px 30px 0px #f4f4f4;
+  padding: calc(15px - 3px) (15px - 3px) (12px - 3px) (15px - 3px);
+  @include bp.mq(pc) {
+    border-radius: 30px;
+    padding: calc(20px - 3px) (20px - 3px) (18px - 3px) (20px - 3px);
+  }
+}
+
+.gallery-card__image {
+  text-align: center;
+  img {
+    width: 315px;
+    border-radius: 10px;
+
+    @include bp.mq(pc) {
+      width: 600px;
+      border-radius: 20px;
+    }
+  }
+}
+
+.gallery-card__text {
+  text-align: center;
+  margin-top: 11px;
+  font-size: 14px;
+  font-weight: 400;
+
+  @include bp.mq(pc) {
+    margin-top: 18px;
+    font-size: 16px;
+  }
+}
+
+.swiper-pagination {
+}
+
+.gallery__pagination {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  bottom: 0 !important;
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    background: #bcbcbc;
+    opacity: 1;
+
+    &.swiper-pagination-bullet-active {
+      background: #fabe00;
+    }
+  }
+}
+
+.gallery__prev,
+.gallery__next {
+  width: 40px;
+  height: 40px;
+  margin-top: -38px;
+
+  @include bp.mq(pc) {
+    width: 50px;
+    height: 50px;
+    margin-top: -60px;
+  }
+  &::after {
+    display: none;
+  }
+}
+
+.swiper-button-prev {
+  background: url(../img/prev-icon.png) no-repeat center center / contain;
+  left: 0;
+  @include bp.mq(pc) {
+    left: 10px;
+  }
+}
+
+.swiper-button-next {
+  background: url(../img/next-icon.png) no-repeat center center / contain;
+  right: 0;
+  @include bp.mq(pc) {
+    right: 10px;
+  }
+}
+
+.gallery__next {
+}
